@@ -1,7 +1,7 @@
 resource "civo_kubernetes_cluster" "my-cluster" {
   name              = "my-cluster"
   region            = "NYC1"
-  num_target_nodes  = 4
+  num_target_nodes  = 6
   target_nodes_size = element(data.civo_instances_size.small.sizes, 0).name
 }
 
