@@ -6,9 +6,9 @@ resource "civo_kubernetes_cluster" "my-cluster" {
 }
 
 provider "kubernetes" {
-  host     = civo_kubernetes_cluster.my-cluster.api_endpoint
+  host               = civo_kubernetes_cluster.my-cluster.api_endpoint
   client_certificate = base64decode(yamldecode(civo_kubernetes_cluster.my-cluster.kubeconfig).users[0].user.client-certificate-data)
-  client_key = base64decode(yamldecode(civo_kubernetes_cluster.my-cluster.kubeconfig).users[0].user.client-key-data)
+  client_key         = base64decode(yamldecode(civo_kubernetes_cluster.my-cluster.kubeconfig).users[0].user.client-key-data)
   cluster_ca_certificate = base64decode(
     yamldecode(civo_kubernetes_cluster.my-cluster.kubeconfig).clusters[0].cluster.certificate-authority-data
   )
